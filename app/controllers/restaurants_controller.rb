@@ -4,7 +4,28 @@ class RestaurantsController < ApplicationController
   # GET /restaurants or /restaurants.json
   def index
     @restaurants = Restaurant.all
-  end
+
+    if params[:search_by_name] && params[:search_by_name] != ""
+      @restaurants = Restaurant.where("name LIKE ?",
+        "%#{params[:search_by_name]}%")
+    end
+
+      if params[:search_by_city] && params[:search_by_city] != ""
+        @restaurants = Restaurant.where("city like ?",
+          "%#{params[:search_by_city]}%")
+      end
+
+      if params[:search_by_state] && params[:search_by_state] != ""
+          @restaurants= Restaurant.where("state like ?",
+            "%#{params[:search_by_state]}%")
+      end
+
+      if params[:search_by_zip] && params[:search_by_zip] != ""
+            @restaurants= Restaurant.where("zip like ?",
+              "%#{params[:search_by_zip]}%")
+      end
+
+    end
 
   # GET /restaurants/1 or /restaurants/1.json
   def show
@@ -64,6 +85,6 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :city, :state, :zip)
+      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :search_by_name, :search_by_city, :search_by_state, :search_by_zip)
     end
 end
