@@ -42,6 +42,7 @@ td {
 
 div {
   &.field, &.actions {
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 }
@@ -80,5 +81,13 @@ div {
 }
 
 label {
-  display: block;
+  display: inline-block;
+  width: auto;
+  margin: 20px 0;
+  padding: 15px;
+
 }
+
+
+
+

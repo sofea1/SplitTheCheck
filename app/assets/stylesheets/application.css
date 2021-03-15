@@ -21,3 +21,12 @@ header {
   padding: 4em;
   font-family: fantasy;
 }
+
+
+.searchBar {
+margin-top: 3em;
+margin-bottom: 3em;
+margin-right: auto;
+margin-left: auto;
+width: auto;
+}
