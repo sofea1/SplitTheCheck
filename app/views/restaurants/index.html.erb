@@ -28,6 +28,8 @@
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
+      <th>Split</th>
+      <th>No Split</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -40,6 +42,8 @@
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
         <td><%= restaurant.zip %></td>
+        <td><%= restaurant.split %></td>
+        <td><%= restaurant.nosplit %></td>
         <td><%= link_to 'Show', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>

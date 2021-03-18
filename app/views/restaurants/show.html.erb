@@ -25,5 +25,12 @@
   <%= @restaurant.zip %>
 </p>
 
+<p>
+<strong> Split Vote - Yes: </strong>
+    <%= @restaurant.split %><br>
+<strong> Split Vote - No: </strong>
+    <%= @restaurant.nosplit %>
+</p>
+
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
