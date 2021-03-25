@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[ show edit update destroy ]
+  before_action :set_restaurant, only: %i[ show edit update destroy split nosplit ]
 
   # GET /restaurants or /restaurants.json
   def index
@@ -77,6 +77,28 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def split
+      @restaurant.split = (@restaurant.split.present? ? @restaurant.split : 0) + 1
+      respond_to do |format|
+        if @restaurant.save
+          format.html { redirect_to @restaurant, notice: 'Split vote registered successfully.' }
+        else
+          format.html { render :show }
+        end
+      end
+    end
+
+    def nosplit
+        @restaurant.nosplit = (@restaurant.nosplit.present? ? @restaurant.nosplit : 0) + 1
+        respond_to do |format|
+          if @restaurant.save
+            format.html { redirect_to @restaurant, notice: '"No Split" vote registered successfully.' }
+          else
+            format.html { render :show }
+          end
+        end
+      end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_restaurant
@@ -85,6 +107,10 @@ class RestaurantsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def restaurant_params
-      params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :search_by_name, :search_by_city, :search_by_state, :search_by_zip)
+    params.require(:restaurant).permit(:name, :address, :city, :state, :zip, :search_by_name, :search_by_city, :search_by_state, :search_by_zip, :split, :nosplit)
+#params.permit(:name, :address, :city, :state, :zip, :search_by_name, :search_by_city, :search_by_state, :search_by_zip, :split, :nosplit)
+
     end
+
+
 end
