@@ -42,7 +42,7 @@
         <td><%= restaurant.zip %></td>
         <td><%= restaurant.split %></td>
         <td><%= restaurant.nosplit %></td>
-        <td><%= link_to 'Show', restaurant %></td>
+        <td><%= link_to 'View', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -52,4 +52,4 @@
 
 <br>
 
-<%= link_to 'New Restaurant', new_restaurant_path %>
+<%= button_to 'Add New Restaurant', new_restaurant_path, :class => "button", :method => :get %>
