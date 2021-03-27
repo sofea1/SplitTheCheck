@@ -14,19 +14,26 @@
 *= require_self
 */
 
+
+
 header {
-  background-color: orange;
-  color: white;
-  width: 65%;
-  padding: 4em;
-  font-family: fantasy;
+text-align: center;
+background-color: orange;
+padding-top: 10px;
+padding-bottom: 10px;
 }
 
+h1 {
+ text-align: center;
+ font-size: 4em;
+ font-family: fantasy;
+ font-style: italic;
+ color: #fff7c5;
+}
 
-.searchBar {
-margin-top: 3em;
-margin-bottom: 3em;
-margin-right: auto;
-margin-left: auto;
-width: auto;
+h2 {
+ text-align: center;
+ font-family: sans-serif;
+ color: #fff7ee;
+
 }

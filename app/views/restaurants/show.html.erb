@@ -32,11 +32,12 @@
     <%= @restaurant.nosplit %>
 </p>
 
-<h2> Would you like to vote? </h2>
+<h3> Would you like to vote? </h3>
+<p>
 <strong> Is <%= @restaurant.name %> Willing To Split? </strong>
 <%= button_to "Split", action: "split" %>
 <%= button_to "No Split", action: "nosplit" %>
-<p>
+</p>
 
 
 

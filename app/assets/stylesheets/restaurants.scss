@@ -1,3 +1,73 @@
 // Place all the styles related to the Restaurants controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+body {
+  text-align: center;
+
+}
+
+div.search {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+form.button_to {
+  width: 100px;
+  display: inline-block;
+}
+
+h3 {
+  color: #6fa8dc;
+  font-size: 2.4em;
+}
+
+table {
+  display: inline-block;
+  table-layout: fixed;
+  border-collapse: collapse;
+  //font-size: 28px;
+  margin-bottom: 20px;
+  background-color: #fff7c5;
+}
+
+th {
+  background-color: white;
+  font-size: 26px;
+  padding: 40px;
+  text-align: center;
+  border-spacing: 5px;
+  color: #063263;
+}
+
+td {
+  padding: 25px;
+  font-size: 26px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #ffe9b7;
+}
+
+#error_explanation
+{
+ width: 100% !important;
+}
+
+.field_with_errors {
+  display: inherit !important;
+  background-color: white !important;
+  color: red;
+}
+
+.field{
+  font-size: 18px;
+}
+
+strong {
+  font-size: 18px;
+  color: #063263;
+}
