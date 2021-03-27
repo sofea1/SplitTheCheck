@@ -45,4 +45,70 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to restaurants_url
   end
+
+  test "should search restaurant by name" do
+    get restaurants_url, params: { name: "Lorem" }
+    assert_response :success
+  end
+
+  test "should search restaurant by city" do
+    get restaurants_url, params: { city: "Hulst" }
+    assert_response :success
+  end
+
+  test "should search restaurant by state" do
+    get restaurants_url, params: { state: "AL" }
+    assert_response :success
+  end
+
+  test "should search restaurant by zip" do
+    get restaurants_url, params: { zip: "73504" }
+    assert_response :success
+  end
+
+  test "should search restaurant by name and city" do
+    get restaurants_url, params: { name: "In", city: "Katihar" }
+    assert_response :success
+  end
+
+  test "should search restaurant by name and state" do
+    get restaurants_url, params: { name: "In", state: "CA" }
+    assert_response :success
+  end
+
+  test "should search restaurant by name and zip" do
+    get restaurants_url, params: { name: "In", zip: "39773" }
+    assert_response :success
+  end
+
+  test "should search restaurant by city and state" do
+    get restaurants_url, params: { city: "New Orleans", state: "LA" }
+    assert_response :success
+  end
+
+  test "should search restaurant by state and zip" do
+    get restaurants_url, params: { state: "New Orleans", zip: "6144" }
+    assert_response :success
+  end
+
+  test "should search restaurant by name city state zip" do
+    get restaurants_url, params: { name: "Ante Maecenas", city: "New Orleans", state: "LA", zip: "6144" }
+    assert_response :success
+  end
+
+  test "should increment restaurant split vote" do
+    post restaurants_split_url(@restaurant)
+    assert_equal @restaurant.reload.split, 1
+    post restaurants_split_url(@restaurant)
+    assert_equal @restaurant.reload.split, 2
+  end
+
+  test "should increment restaurant nosplit vote" do
+    post restaurants_nosplit_url(@restaurant)
+    assert_equal @restaurant.reload.nosplit, 1
+    post restaurants_nosplit_url(@restaurant)
+    assert_equal @restaurant.reload.nosplit, 2
+  end
+
+
 end
