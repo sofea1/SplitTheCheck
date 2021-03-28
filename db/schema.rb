@@ -20,8 +20,8 @@ ActiveRecord::Schema.define(version: 2021_03_18_022015) do
     t.integer "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "split"
-    t.integer "nosplit"
+    t.integer "split", default:0
+    t.integer "nosplit", default:0
   end
 
 end

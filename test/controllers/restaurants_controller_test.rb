@@ -96,18 +96,23 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should search restaurant by name city state zip in fixture one" do
+    get restaurants_url, params: { name: "My Restaurant", city: "My City", state: "CA", zip: "10001" }
+    assert_response :success
+  end
+
   test "should increment restaurant split vote" do
     post restaurants_split_url(@restaurant)
-    assert_equal @restaurant.reload.split, 1
+    assert_equal @restaurant.reload.split, 18
     post restaurants_split_url(@restaurant)
-    assert_equal @restaurant.reload.split, 2
+    assert_equal @restaurant.reload.split, 19
   end
 
   test "should increment restaurant nosplit vote" do
     post restaurants_nosplit_url(@restaurant)
-    assert_equal @restaurant.reload.nosplit, 1
-    post restaurants_nosplit_url(@restaurant)
     assert_equal @restaurant.reload.nosplit, 2
+    post restaurants_nosplit_url(@restaurant)
+    assert_equal @restaurant.reload.nosplit, 3
   end
 
 
