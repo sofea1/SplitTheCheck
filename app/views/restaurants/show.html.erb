@@ -27,9 +27,9 @@
 
 <p>
 <strong> Split Vote - Yes: </strong>
-    <%= @restaurant.split %><br>
+    <td><%= @restaurant.split.present? ? @restaurant.split : 0 %></td><br>
 <strong> Split Vote - No: </strong>
-    <%= @restaurant.nosplit %>
+    <td><%= @restaurant.nosplit.present? ? @restaurant.nosplit : 0 %></td>
 </p>
 
 <h3> Would you like to vote? </h3>

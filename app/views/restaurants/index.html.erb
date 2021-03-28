@@ -40,8 +40,10 @@
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
         <td><%= restaurant.zip %></td>
-        <td><%= restaurant.split %></td>
-        <td><%= restaurant.nosplit %></td>
+
+        <td><%= restaurant.split.present? ? restaurant.split : 0 %></td>
+        
+        <td><%= restaurant.nosplit.present? ? restaurant.nosplit : 0 %></td>
         <td><%= link_to 'View', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
