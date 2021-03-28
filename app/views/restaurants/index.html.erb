@@ -18,10 +18,14 @@
 <% end %>
 </div>
 
+<% if @restaurants.empty? %>
+<p> There are no restaurants to display </p></br>
+<% else %>
+
 <table>
   <thead>
     <tr>
-      <th>Name</th>
+      <th>Restaurant Name</th>
       <th>Address</th>
       <th>City</th>
       <th>State</th>
@@ -40,9 +44,7 @@
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
         <td><%= restaurant.zip %></td>
-
         <td><%= restaurant.split.present? ? restaurant.split : 0 %></td>
-        
         <td><%= restaurant.nosplit.present? ? restaurant.nosplit : 0 %></td>
         <td><%= link_to 'View', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
@@ -54,4 +56,5 @@
 
 <br>
 
+<% end %>
 <%= button_to 'Add Restaurant', new_restaurant_path, :class => "button", :method => :get %>
