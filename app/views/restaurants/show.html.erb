@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h3> Restaurant Details </h3>
 <p>
   <strong> Name:
   <%= @restaurant.name %>
@@ -31,9 +31,9 @@
 </p>
 
 <p>
-<strong> Split Vote - Yes: 
+<strong> Split Vote - Yes:
     <td><%= @restaurant.split.present? ? @restaurant.split : 0 %></td><br>
-         Split Vote - No: 
+         Split Vote - No:
     <td><%= @restaurant.nosplit.present? ? @restaurant.nosplit : 0 %></td>
 </strong>
 </p>
