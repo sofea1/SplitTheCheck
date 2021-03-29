@@ -1,35 +1,41 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong> Name:</strong>
+  <strong> Name:
   <%= @restaurant.name %>
+  </strong>
 </p>
 
 <p>
-  <strong>Address:</strong>
+  <strong>Address:
   <%= @restaurant.address %>
+  </strong>
 </p>
 
 <p>
-  <strong>City:</strong>
+  <strong>City:
   <%= @restaurant.city %>
+  </strong>
 </p>
 
 <p>
-  <strong>State:</strong>
+  <strong>State:
   <%= @restaurant.state %>
+  </strong>
 </p>
 
 <p>
-  <strong>Zip:</strong>
+  <strong>Zip:
   <%= @restaurant.zip %>
+  </strong>
 </p>
 
 <p>
-<strong> Split Vote - Yes: </strong>
+<strong> Split Vote - Yes: 
     <td><%= @restaurant.split.present? ? @restaurant.split : 0 %></td><br>
-<strong> Split Vote - No: </strong>
+         Split Vote - No: 
     <td><%= @restaurant.nosplit.present? ? @restaurant.nosplit : 0 %></td>
+</strong>
 </p>
 
 <h3> Would you like to vote? </h3>

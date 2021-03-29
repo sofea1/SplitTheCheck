@@ -14,6 +14,10 @@ div.search {
   padding-bottom: 40px;
 }
 
+div.field {
+  font-size: 22px;
+}
+
 form.button_to {
   width: 100px;
   display: inline-block;
@@ -28,7 +32,6 @@ table {
   display: inline-block;
   table-layout: fixed;
   border-collapse: collapse;
-  //font-size: 28px;
   margin-bottom: 20px;
   background-color: #fff7c5;
 }
@@ -57,15 +60,13 @@ tr:nth-child(even) {
  width: 100% !important;
 }
 
+
 .field_with_errors {
   display: inherit !important;
   background-color: white !important;
   color: red;
 }
 
-.field{
-  font-size: 18px;
-}
 
 strong {
   font-size: 18px;
