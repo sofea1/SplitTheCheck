@@ -38,13 +38,14 @@
 </strong>
 </p>
 
+<% if user_signed_in? %>
 <h3> Would you like to vote? </h3>
 <p>
 <strong> Is <%= @restaurant.name %> Willing To Split? </strong>
 <%= button_to "Split", action: "split" %>
 <%= button_to "No Split", action: "nosplit" %>
 </p>
-
+<% end %>
 
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

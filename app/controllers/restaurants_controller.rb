@@ -1,6 +1,6 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[ show edit update destroy split nosplit ]
-
+before_action :set_restaurant, only: %i[ show edit update destroy split nosplit ]
+before_action :authenticate_user!, only: %i[ edit new update destroy split nosplit ]
   # GET /restaurants or /restaurants.json
   def index
     @restaurants = Restaurant.all
