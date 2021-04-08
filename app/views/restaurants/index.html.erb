@@ -1,12 +1,4 @@
 <p id="notice"><%= notice %></p>
-<% if user_signed_in? %>
-<p> Logged in as <strong> <%= current_user.email %></strong> </p>
-<%= link_to "Log Out", destroy_user_session_path, method: :delete %><br />
-<% else %>
-<%= link_to "Log In", new_user_session_path %><br />
-<%= link_to "Sign Up", new_user_registration_path %><br />
-<% end %>
-
 
 <div class="searchBar">
 <%= form_tag "/restaurants", method: "GET" do %>

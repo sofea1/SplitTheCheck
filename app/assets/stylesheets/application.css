@@ -23,6 +23,13 @@ padding-top: 10px;
 padding-bottom: 10px;
 }
 
+.topright {
+  position: relative
+  float: right;
+  text-align: right;
+  margin-right: 30px;
+}
+
 h1 {
  text-align: center;
  font-size: 4em;
@@ -32,8 +39,7 @@ h1 {
 }
 
 h2 {
- text-align: center;
- font-family: sans-serif;
- color: #fff7ee;
-
+  text-align: center;
+  font-family: sans-serif;
+  color: #fff7ee;
 }
