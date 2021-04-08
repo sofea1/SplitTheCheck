@@ -13,7 +13,6 @@
     <header>
       <h1> RESTAURANT SPLIT</h1>
       <h2> Vote for great restaurants that split the check or tag anti-customer restaurants that don't</h2>
-
       <div class="topright">
       <% if user_signed_in? %>
       <p> Logged in as <strong> <%= current_user.email %></strong> </p>
@@ -23,6 +22,8 @@
       <%= button_to "Sign Up", new_user_registration_path, :class => "button", :method => :get %><br />
       <% end %>
       </div>
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
     </header>
     <%= yield %>
   </body>
