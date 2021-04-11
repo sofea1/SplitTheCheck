@@ -1,0 +1,32 @@
+<%= form_with(model: vote_history, local: true) do |form| %>
+  <% if vote_history.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vote_history.errors.count, "error") %> prohibited this vote_history from being saved:</h2>
+
+      <ul>
+      <% vote_history.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= form.text_field :user_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_id %>
+    <%= form.text_field :restaurant_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :votetype %>
+    <%= form.number_field :votetype %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
