@@ -1,7 +1,9 @@
 require 'test_helper'
 
 class RestaurantsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
+    @user = users(:one)
     @restaurant = restaurants(:one)
   end
 
@@ -10,16 +12,17 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get new" do
+  test "should get new when signed in" do
+    sign_in @user
     get new_restaurant_url
     assert_response :success
   end
 
-  test "should create restaurant" do
+  test "should create restaurant when signed in" do
+    sign_in @user
     assert_difference('Restaurant.count') do
       post restaurants_url, params: { restaurant: { address: @restaurant.address, city: @restaurant.city, name: @restaurant.name, state: @restaurant.state, zip: @restaurant.zip } }
     end
-
     assert_redirected_to restaurant_url(Restaurant.last)
   end
 
@@ -28,17 +31,34 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
+  test "should get edit when signed in" do
+    sign_in @user
     get edit_restaurant_url(@restaurant)
     assert_response :success
   end
 
-  test "should update restaurant" do
+  test "should not get edit if not signed in" do
+    sign_out @user
+    get edit_restaurant_url(@restaurant)
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should update restaurant after login" do
+    sign_in @user
     patch restaurant_url(@restaurant), params: { restaurant: { address: @restaurant.address, city: @restaurant.city, name: @restaurant.name, state: @restaurant.state, zip: @restaurant.zip } }
     assert_redirected_to restaurant_url(@restaurant)
   end
 
-  test "should destroy restaurant" do
+  test "should not update restaurant if not signed in" do
+    sign_out @user
+    patch restaurant_url(@restaurant), params: { restaurant: { address: @restaurant.address, city: @restaurant.city, name: @restaurant.name, state: @restaurant.state, zip: @restaurant.zip } }
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
+  end
+
+  test "should destroy restaurant only after login" do
+    sign_in @user
     assert_difference('Restaurant.count', -1) do
       delete restaurant_url(@restaurant)
     end
@@ -101,14 +121,16 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should increment restaurant split vote" do
+  test "should increment restaurant split vote after login" do
+    sign_in @user
     post restaurants_split_url(@restaurant)
     assert_equal @restaurant.reload.split, 18
     post restaurants_split_url(@restaurant)
     assert_equal @restaurant.reload.split, 19
   end
 
-  test "should increment restaurant nosplit vote" do
+  test "should increment restaurant nosplit vote after login" do
+    sign_in @user
     post restaurants_nosplit_url(@restaurant)
     assert_equal @restaurant.reload.nosplit, 2
     post restaurants_nosplit_url(@restaurant)
