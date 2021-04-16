@@ -38,11 +38,11 @@
 
 <p>
  <strong> Split Vote - Yes:
-    <%= @restaurant.split %>
+    <%= @restaurant.votes.where(votetype: 1).count %> 
  </strong><br>
 
 <strong> Split Vote - No:
-    <%= @restaurant.nosplit %>
+    <%= @restaurant.votes.where(votetype: -1).count %>
 </strong>
 </p>
 

@@ -32,9 +32,9 @@
 
 <p>
 <strong> Split Vote - Yes:
-    <td><%= @restaurant.split.present? ? @restaurant.split : 0 %></td><br>
+      <td><%= @restaurant.votes.where(votetype: 1).count %>  </td>
          Split Vote - No:
-    <td><%= @restaurant.nosplit.present? ? @restaurant.nosplit : 0 %></td>
+      <td><%= @restaurant.votes.where(votetype: -1).count %>  </td>
 </strong>
 </p>
 

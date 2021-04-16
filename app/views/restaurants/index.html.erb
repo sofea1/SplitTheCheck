@@ -42,8 +42,8 @@
         <td><%= restaurant.city %></td>
         <td><%= restaurant.state %></td>
         <td><%= restaurant.zip %></td>
-        <td><%= restaurant.split.present? ? restaurant.split : 0 %></td>
-        <td><%= restaurant.nosplit.present? ? restaurant.nosplit : 0 %></td>
+        <td><%= restaurant.votes.where(votetype: 1).count %></td>
+        <td><%= restaurant.votes.where(votetype: -1).count %>  </td>
         <% if user_signed_in? %>
         <td><%= link_to 'View', restaurant %></td>
         <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
