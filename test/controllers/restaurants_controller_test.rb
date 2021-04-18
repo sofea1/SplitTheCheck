@@ -5,6 +5,7 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:one)
     @restaurant = restaurants(:one)
+    @vote_history = vote_histories(:one)
   end
 
   test "should get index" do
@@ -124,18 +125,32 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
   test "should increment restaurant split vote after login" do
     sign_in @user
     post restaurants_split_url(@restaurant)
-    assert_equal @restaurant.reload.split, 18
-    post restaurants_split_url(@restaurant)
-    assert_equal @restaurant.reload.split, 19
+    assert_response :success
+    assert_equal @vote_history.reload.votetype, 1
   end
 
   test "should increment restaurant nosplit vote after login" do
+    @vote_history = vote_histories(:two)
     sign_in @user
     post restaurants_nosplit_url(@restaurant)
-    assert_equal @restaurant.reload.nosplit, 2
-    post restaurants_nosplit_url(@restaurant)
-    assert_equal @restaurant.reload.nosplit, 3
+    assert_response :success
+    assert_equal @vote_history.reload.votetype, -1
   end
 
+  test "should increment restaurant split count after login" do
+    sign_in @user
+    assert_difference '@restaurant.reload.votes.where(votetype: 1).count', 1 do
+    post restaurants_split_url(@restaurant)
+    assert_response :success
+    end
+  end
+
+  test "should increment restaurant nosplit count after login" do
+    sign_in @user
+    assert_difference '@restaurant.reload.votes.where(votetype: -1).count', 1 do
+    post restaurants_nosplit_url(@restaurant)
+    assert_response :success
+    end
+  end
 
 end

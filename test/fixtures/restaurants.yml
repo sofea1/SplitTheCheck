@@ -6,14 +6,11 @@ one:
   city: My City
   state: CA
   zip: 10001
-  split: 17
-  nosplit: 1
-
+  
 two:
   name: Fancy Restaurant
   address: BestLocation
   city: BestCity
   state: FL
   zip: 123456
-  split: 123456
-  nosplit: 0
+  

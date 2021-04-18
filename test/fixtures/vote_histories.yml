@@ -8,4 +8,4 @@ one:
 two:
   user: two
   restaurant: two
-  votetype: 1
+  votetype: -1
