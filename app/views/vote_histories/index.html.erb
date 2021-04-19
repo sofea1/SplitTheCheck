@@ -19,8 +19,6 @@
         <td><%= vote_history.restaurant %></td>
         <td><%= vote_history.votetype %></td>
         <td><%= link_to 'Show', vote_history %></td>
-        <td><%= link_to 'Edit', edit_vote_history_path(vote_history) %></td>
-        <td><%= link_to 'Destroy', vote_history, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +26,3 @@
 
 <br>
 
-<%= link_to 'New Vote History', new_vote_history_path %>

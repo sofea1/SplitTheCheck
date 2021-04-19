@@ -1,8 +1,10 @@
 require 'test_helper'
 
 class VoteHistoriesControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @vote_history = vote_histories(:one)
+    @user = users(:one)
   end
 
   test "should get index" do
@@ -24,25 +26,10 @@ class VoteHistoriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should show vote_history" do
+    sign_in @user
     get vote_history_url(@vote_history)
     assert_response :success
   end
 
-  test "should get edit" do
-    get edit_vote_history_url(@vote_history)
-    assert_response :success
-  end
 
-  test "should update vote_history" do
-    patch vote_history_url(@vote_history), params: { vote_history: { restaurant_id: @vote_history.restaurant_id, user_id: @vote_history.user_id, votetype: @vote_history.votetype } }
-    assert_redirected_to vote_history_url(@vote_history)
-  end
-
-  test "should destroy vote_history" do
-    assert_difference('VoteHistory.count', -1) do
-      delete vote_history_url(@vote_history)
-    end
-
-    assert_redirected_to vote_histories_url
-  end
 end

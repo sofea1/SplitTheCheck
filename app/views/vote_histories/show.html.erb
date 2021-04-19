@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <strong>User:</strong>
@@ -15,5 +15,14 @@
   <%= @vote_history.votetype %>
 </p>
 
-<%= link_to 'Edit', edit_vote_history_path(@vote_history) %> |
+<p>
+  <strong>Created at:</strong>
+  <%= @vote_history.created_at %>
+</p>
+
+<p>
+  <strong>Updated at:</strong>
+  <%= @vote_history.updated_at %>
+</p>
+
 <%= link_to 'Back', vote_histories_path %>
