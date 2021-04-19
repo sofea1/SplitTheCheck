@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_11_204354) do
+ActiveRecord::Schema.define(version: 2021_04_19_011943) do
 
   create_table "restaurants", force: :cascade do |t|
     t.string "name"
@@ -20,8 +20,6 @@ ActiveRecord::Schema.define(version: 2021_04_11_204354) do
     t.integer "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "split"
-    t.integer "nosplit"
   end
 
   create_table "users", force: :cascade do |t|

@@ -27,7 +27,7 @@ Restaurant.create!(name: 'Non Quam', address: '8439 Interdum. Ave', city: 'Tay',
 Restaurant.create!(name: 'Ut Quam Vel', address: '3470 Lobortis Ave', city: 'Campinas', state: 'SD', zip: '75955')
 Restaurant.create!(name: 'Lorem', address: '289 Etiam Road', city: 'Hulst', state: 'AL', zip: '73504')
 Restaurant.create!(name: 'Tortor Nunc', address: '7439 Convallis St.', city: 'Ararat', state: 'WA', zip: '29030')
-Restaurant.create!(name: 'Hendrerit', address: '8513 Nisl Rd.', city: 'Graz', state: 'CA', zip: '04010', split: 7)
+Restaurant.create!(name: 'Hendrerit', address: '8513 Nisl Rd.', city: 'Graz', state: 'CA', zip: '04010')
 Restaurant.create!(name: 'Primis', address: '3912 Vitae Street', city: 'Caucaia', state: 'CA', zip: '17434')
 Restaurant.create!(name: 'Non Enim Mauris', address: '468 Orci, Street', city: 'Chilliwack', state: 'OK', zip: '85335')
 Restaurant.create!(name: 'In', address: '4826 Ipsum St.', city: 'Katihar', state: 'CA', zip: '39773')
