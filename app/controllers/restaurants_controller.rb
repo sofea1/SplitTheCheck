@@ -95,6 +95,12 @@ class RestaurantsController < ApplicationController
             render :show
 
           end
+          
+          def new_comment
+
+              @comment = Comment.new
+
+           end
 
           private
           # Use callbacks to share common setup or constraints between actions.

@@ -44,9 +44,10 @@
 <strong> Is <%= @restaurant.name %> Willing To Split? </strong>
 <%= button_to "Split", action: "split" %>
 <%= button_to "No Split", action: "nosplit" %>
-</p>
-<% end %>
+</p><br>
+<%= button_to 'Add Comment', restaurants_new_comment_path(@restaurant) %> <br>
 
+<% end %>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>
