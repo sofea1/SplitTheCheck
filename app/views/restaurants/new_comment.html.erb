@@ -16,8 +16,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label "Your comment:" %>
-    <%= form.text_area :comment %>
+    <%= form.label :comment, "Your comment:" %><br>
+    <%= form.text_area :comment, rows: 21, cols:60 %>
   </div>
   <div class="actions">
     <%= form.submit "Comment", class:"button" %>

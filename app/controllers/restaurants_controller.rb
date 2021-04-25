@@ -95,12 +95,19 @@ class RestaurantsController < ApplicationController
             render :show
 
           end
-          
+
           def new_comment
 
               @comment = Comment.new
 
            end
+
+          def add_comment
+
+              @restaurant.add_comment(current_user.id, comment_params[:comment])
+
+          end
+
 
           private
           # Use callbacks to share common setup or constraints between actions.
@@ -115,5 +122,9 @@ class RestaurantsController < ApplicationController
 
           end
 
+          # Only allow a list of trusted parameters through.
+          def comment_params
+            params.require(:comment).permit(:comment)
+          end
 
         end

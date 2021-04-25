@@ -6,4 +6,8 @@ validates :state, length: { is: 2 }, format: { with: /\A[A-Z]+\z/, message: "mus
 has_many :votes, class_name: "VoteHistory"
 has_many :comments
 
+def add_comment(user_id, comment)
+Comment.create(restaurant_id:self.id, user_id:user_id, comment:comment).save
+end
+
 end
