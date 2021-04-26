@@ -1,3 +1,41 @@
+<h3> Restaurant Details </h3>
+<p>
+  <strong> Name:
+  <%= @restaurant.name %>
+  </strong>
+</p>
+
+<p>
+  <strong>Address:
+  <%= @restaurant.address %>
+  </strong>
+</p>
+
+<p>
+  <strong>City:
+  <%= @restaurant.city %>
+  </strong>
+</p>
+
+<p>
+  <strong>State:
+  <%= @restaurant.state %>
+  </strong>
+</p>
+
+<p>
+  <strong>Zip:
+  <%= @restaurant.zip %>
+  </strong>
+</p>
+
+<p>
+<strong> Split Vote - Yes:
+      <td><%= @restaurant.votes.where(votetype: 1).count %>  </td>
+         Split Vote - No:
+      <td><%= @restaurant.votes.where(votetype: -1).count %>  </td>
+</strong>
+</p><br>
 
 
 <h3>New Comment</h3>

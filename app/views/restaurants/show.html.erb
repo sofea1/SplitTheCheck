@@ -45,7 +45,7 @@
 <%= button_to "Split", action: "split" %>
 <%= button_to "No Split", action: "nosplit" %>
 </p><br>
-<%= button_to 'Add Comment', restaurants_new_comment_path(@restaurant) %> <br>
+<%= button_to 'Add Comment', restaurants_new_comment_path(@restaurant), :class => "button", :method => :get %> <br>
 
 <% end %>
 

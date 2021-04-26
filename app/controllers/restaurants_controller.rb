@@ -1,6 +1,10 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: %i[ show edit update destroy split nosplit ]
-  before_action :authenticate_user!, only: %i[ edit new update destroy split nosplit ]
+#  before_action :set_restaurant, only: %i[ show edit update destroy split nosplit comment]
+#  before_action :authenticate_user!, only: %i[ edit new update destroy split nosplit comment]
+before_action :set_restaurant, except: [ :index, :search, :new, :create]
+before_action :authenticate_user!, except: [ :index, :search, :show]
+
+
   # GET /restaurants or /restaurants.json
   def index
     @restaurants = Restaurant.all
@@ -97,15 +101,16 @@ class RestaurantsController < ApplicationController
           end
 
           def new_comment
-
               @comment = Comment.new
 
            end
 
           def add_comment
-
               @restaurant.add_comment(current_user.id, comment_params[:comment])
-
+              respond_to do |format|
+                format.html { redirect_to restaurants_url, notice: "Comment was successfully created." }
+                format.json { head :no_content }
+              end
           end
 
 
