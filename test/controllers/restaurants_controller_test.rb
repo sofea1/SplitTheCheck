@@ -153,4 +153,25 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should not allow comment if not signed in" do
+    post restaurants_add_comment_url(@restaurant), params: { comment: { comment: "Comment!"} }
+    assert_response :redirect
+  end
+
+  test "should create comment for a restaurant" do
+    sign_in @user
+    assert_difference "Comment.count", 1 do
+    post restaurants_add_comment_url(@restaurant), params: { comment: {comment: "Next comment"} }
+    assert_redirected_to restaurants_url
+   end
+ end
+
+ test "should get comment for a reastaurant" do
+   @comment = comments(:two)
+   sign_in @user
+   post restaurants_add_comment_url(@restaurant), params: { comment: { comment: @comment } }
+   assert @restaurant.comments.present?
+ end
+
+ 
 end
