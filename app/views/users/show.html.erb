@@ -1,0 +1,60 @@
+<h3>User Summary</h3>
+
+<h3>Restaurants with Comments</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Comment</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @comments.each do |comment| %>
+      <tr>
+        <td><%= comment.restaurant.name %></td>
+        <td><%= comment.restaurant.address %></td>
+        <td><%= comment.restaurant.city %></td>
+        <td><%= comment.restaurant.state %></td>
+        <td><%= comment.restaurant.zip %></td>
+        <td><%= comment.comment %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h3>Restaurants with Votes</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+      <th>Split</th>
+      <th>NoSplit</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @votes.each do |vote| %>
+      <tr>
+        <td><%= vote.restaurant.name %></td>
+        <td><%= vote.restaurant.address %></td>
+        <td><%= vote.restaurant.city %></td>
+        <td><%= vote.restaurant.state %></td>
+        <td><%= vote.restaurant.zip %></td>
+        <td><%= vote.restaurant.votes.where(votetype: 1).count %></td>
+        <td><%= vote.restaurant.votes.where(votetype: -1).count %></td>
+      </tr>
+    <% end %>
+  </tbody>
+  </table>
+
+
+<%= link_to 'Back', restaurants_path, class: "back" %>

@@ -55,8 +55,9 @@
     <% end %>
   </tbody>
 </table>
-
 <br>
-
+<% if user_signed_in? %>
+<%= button_to 'User Summary', users_show_path(current_user.id), :class => "button", :method => :get %><br>
 <% end %>
-<%= button_to 'Add Restaurant', new_restaurant_path, :class => "button", :method => :get %>
+<% end %>
+<%= button_to 'Add Restaurant', new_restaurant_path, :class => "button", :method => :get %> <br>
