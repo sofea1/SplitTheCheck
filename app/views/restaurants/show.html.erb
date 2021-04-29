@@ -46,8 +46,8 @@
 <%= button_to "No Split", action: "nosplit" %>
 </p><br>
 <%= button_to 'Add Comment', restaurants_new_comment_path(@restaurant), :class => "button", :method => :get %> <br>
-
+<%= button_to "Add to Favorites", {id: @restaurant.id, action: "add_favorite" }, class: "button"  %><br>
+<%= button_to 'Edit', edit_restaurant_path(@restaurant), :class => "button", :method => :get %> <br>
 <% end %>
 
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
 <%= link_to 'Back', restaurants_path %>

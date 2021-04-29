@@ -1,6 +1,6 @@
 <h3>User Summary</h3>
 
-<h3>Restaurants with Comments</h3>
+<h3>My Restaurants with Comments</h3>
 <table>
   <thead>
     <tr>
@@ -27,7 +27,35 @@
   </tbody>
 </table>
 
-<h3>Restaurants with Votes</h3>
+<h3>My Favorite Restaurants</h3>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @favorites.each do |favorite| %>
+      <tr>
+        <td><%= favorite.restaurant.name %></td>
+        <td><%= favorite.restaurant.address %></td>
+        <td><%= favorite.restaurant.city %></td>
+        <td><%= favorite.restaurant.state %></td>
+        <td><%= favorite.restaurant.zip %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h3>My Voted Restaurants</h3>
 <table>
   <thead>
     <tr>
@@ -50,6 +78,7 @@
     <% end %>
   </tbody>
   </table>
+
 
 
 <%= link_to 'Back', restaurants_path, class: "back" %>

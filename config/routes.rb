@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
  post "restaurants/:id/comment" => "restaurants#add_comment", as: "restaurants_add_comment"
  get "users/:id" => "users#show", as: "users_show"
-
+ post "restaurants/:id/favorite" => "restaurants#add_favorite", as: "restaurants_add_favorite"
  
 end
 

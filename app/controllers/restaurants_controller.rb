@@ -115,6 +115,13 @@ before_action :authenticate_user!, except: [ :index, :search, :show]
               end
           end
 
+       	 def add_favorite
+      	     @restaurant.add_favorite(current_user.id)
+             respond_to do |format|
+               format.html { redirect_to @restaurant, notice: "Restaurant was successfully added to My Favorites." }
+               format.json { head :no_content }
+              end
+          end
 
           private
           # Use callbacks to share common setup or constraints between actions.
