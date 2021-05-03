@@ -55,7 +55,7 @@
 </table>
 
 
-<h3>My Voted Restaurants</h3>
+<h3>Restaurants with My Votes</h3>
 <table>
   <thead>
     <tr>
@@ -72,8 +72,13 @@
   <tbody>
     <% @votes.each do |vote| %>
       <tr>
-        <td><%= vote.restaurant_id%></td>
-
+        <td><%= vote.restaurant.name %></td>
+        <td><%= vote.restaurant.address %></td>
+        <td><%= vote.restaurant.city %></td>
+        <td><%= vote.restaurant.state %></td>
+        <td><%= vote.restaurant.zip %></td>
+        <td><%= vote.restaurant.votes.where(votetype: 1).count %></td>
+        <td><%= vote.restaurant.votes.where(votetype: -1).count %></td>
       </tr>
     <% end %>
   </tbody>

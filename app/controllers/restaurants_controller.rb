@@ -1,8 +1,8 @@
 class RestaurantsController < ApplicationController
-#  before_action :set_restaurant, only: %i[ show edit update destroy split nosplit comment]
+#before_action :set_restaurant, only: %i[ show edit update destroy split nosplit add_comment]
 #  before_action :authenticate_user!, only: %i[ edit new update destroy split nosplit comment]
-#before_action :set_restaurant, except: [ :index, :search, :new, :create]
-before_action :set_restaurant, except: [ :index, :search, :new]
+before_action :set_restaurant, except: [ :index, :search, :new, :create]
+#before_action :set_restaurant, except: [ :index, :search, :new]
 
 before_action :authenticate_user!, except: [ :index, :search, :show]
 
