@@ -1,6 +1,6 @@
 class VoteHistoriesController < ApplicationController
- before_action :set_vote_history, only: %i[ index show ]
- before_action :authenticate_user!, only: %i[ index show ]
+ before_action :set_vote_history, only: %i[ show ]
+ before_action :authenticate_user!, only: %i[ show ]
   # GET /vote_histories or /vote_histories.json
   def index
     @vote_histories = VoteHistory.all

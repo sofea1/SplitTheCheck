@@ -173,5 +173,17 @@ class RestaurantsControllerTest < ActionDispatch::IntegrationTest
    assert @restaurant.comments.present?
  end
 
+ test "should add a favorite" do
+   sign_in @user
+   get restaurant_url(@restaurant)
+   assert_difference "Favorite.count", 1 do
+   post restaurants_add_favorite_path(@restaurant)
+   assert_redirected_to restaurant_url(@restaurant)
+  end
+ end
  
+ test "should not allow adding favorite if not signed in" do
+    post restaurants_add_favorite_path(@restaurant)
+    assert_response :redirect
+  end
 end
