@@ -16,7 +16,7 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.restaurant.name %></td>
+        <td><%= link_to comment.restaurant.name, restaurant_path(comment.restaurant) %></td>
         <td><%= comment.restaurant.address %></td>
         <td><%= comment.restaurant.city %></td>
         <td><%= comment.restaurant.state %></td>
@@ -44,7 +44,7 @@
   <tbody>
     <% @favorites.each do |favorite| %>
       <tr>
-        <td><%= favorite.restaurant.name %></td>
+        <td><%= link_to favorite.restaurant.name, restaurant_path(favorite.restaurant) %></td>
         <td><%= favorite.restaurant.address %></td>
         <td><%= favorite.restaurant.city %></td>
         <td><%= favorite.restaurant.state %></td>
@@ -72,7 +72,7 @@
   <tbody>
     <% @votes.each do |vote| %>
       <tr>
-        <td><%= vote.restaurant.name %></td>
+        <td><%= link_to vote.restaurant.name,restaurant_path(vote.restaurant) %></td>
         <td><%= vote.restaurant.address %></td>
         <td><%= vote.restaurant.city %></td>
         <td><%= vote.restaurant.state %></td>
